@@ -7,4 +7,4 @@ module.exports = {
     currentDateTime: Date(),
     directoryName: __dirname,
     fileName: __filename,
-}
+};
