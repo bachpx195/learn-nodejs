@@ -21,3 +21,14 @@ Code duoc cap nhat lien tuc.
 npm run build
 npm run serve
 npm start
+
+// Files
+require('fs') - file systems quan ly ghi file doc file
+
++ callback -> goi ham trong ham
+vd:
+  fs.writeFile(fileName, jsonString, 'utf-8', (err, data) => {
+      if (err) throw err;
+      console.log(`Saved to the ${fileName}`);
+  })
++ Asynchronously

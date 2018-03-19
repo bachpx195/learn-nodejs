@@ -2,7 +2,10 @@ const rect = require('../Shape/rectangle');
 let aCircle = require('../Shape/circle');
 let arithmeticMean = require('../Math/arithmetic');
 let http = require('http');
-const port = 3001
+const port = 3001;
+let fileManager = require('./fileManager');
+const fileName = __dirname + '/../data/temp.txt'
+
 
 console.log(`==========Lession 1: Print Hello World==========`);
 
@@ -49,15 +52,58 @@ console.log(`==========Lession 3: HTTP module==========`);
     // end 4
 */
 console.log(`==========Lession 5: Su dung Babel==========`);
+/*
+    const server = http.createServer((request, response) => {
+        // response.write("this is a response for a request !");
+        response.writeHead(200, {
+            'content-Type': 'text/html',
+        });
 
-const server = http.createServer((request, response) => {
-    // response.write("this is a response for a request !");
-    response.writeHead(200, {
-        'content-Type': 'text/html',
-    });
+        response.write(`Request's url : ${request.url} \r\n`);
+        response.end();
+    }).listen(port);
+    console.log(`Server is running with post ${port}`);
+    console.log(`thay doi cai nhe ^^`);
+*/
+    // end 5
 
-    response.write(`Request's url : ${request.url} \r\n`);
-    response.end();
-}).listen(port);
-console.log(`Server is running with post ${port}`);
-console.log(`thay doi cai nhe ^^`);
+console.log(`==========Lession 6: Lam viec voi file==========`);
+    console.log(`Working with files`);
+    fileManager.createNewFile(fileName);
+    let jsonObject = {
+      foods: [
+          {
+              foodName: "Cream tea",
+              foodDescription: "This is a cup of tea"
+          },
+          {
+              foodName: "Japanese Salad",
+              foodDescription: "Very delicious Japanese Salad"
+          },
+          {
+              foodName: "Karean Kimchi",
+              foodDescription: "Tranditional Korean Food"
+          },
+          {
+              foodName: "Fresh mushroom",
+              foodDescription: "Fresh mushroom with vegatables"
+          },
+          {
+              foodName: "Oysters",
+              foodDescription: "Oysters with ice rock"
+          },
+          {
+              foodName: "Multiple salad",
+              foodDescription: "Salad mixed with mushroom"
+          },
+          {
+              foodName: "Vegetable",
+              foodDescription: "Fresh vegatables"
+          }
+      ],
+      resultCode: 200,
+      restaurantName: "Sasimi BBQ"
+    };
+    jsonObject.address = "25 Lan Ong, Bang Bang, Hai Phong, Viet Nam";
+    fileManager.saveJsonObjectToFile(jsonObject, fileName);
+    fileManager.readJsonObjectFromFile(fileName);
