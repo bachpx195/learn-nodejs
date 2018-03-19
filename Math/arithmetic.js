@@ -6,6 +6,7 @@ module.exports = {
             total = total + parseFloat(number);
             console.log(`total is : ${total}, number is : ${number}`)
         }
-        return total / numbers.length;
+        return
+        total / numbers.length;
     }
 }
