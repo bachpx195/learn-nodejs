@@ -4,7 +4,8 @@ let arithmeticMean = require('../Math/arithmetic');
 let http = require('http');
 const port = 3001;
 let fileManager = require('./fileManager');
-const fileName = __dirname + '/../data/temp.txt'
+const fileName = __dirname + '/../data/temp.txt';
+const EventEmitter = require('events');
 
 
 console.log(`==========Lession 1: Print Hello World==========`);
@@ -106,4 +107,27 @@ console.log(`==========Lession 6: Lam viec voi file==========`);
     };
     jsonObject.address = "25 Lan Ong, Bang Bang, Hai Phong, Viet Nam";
     fileManager.saveJsonObjectToFile(jsonObject, fileName);
-    fileManager.readJsonObjectFromFile(fileName);
+    // fileManager.readJsonObjectFromFile(fileName);
+    // end 6
+
+console.log(`==========Lession 7: Events==========`);
+    class Customer extends EventEmitter {
+        constructor(name, gender) {
+            super();
+            this.name = name;
+            this.gender = gender;
+        }
+    }
+    const mrJohn = new Customer("John", "male");
+    const callbackFunction = (foods, customer) => {
+        for(let index in foods){
+            console.log(`${customer.name} call ${foods[index]}`);
+        }
+    };
+    mrJohn.on('eventCallFoods', callbackFunction);
+    console.log("Do something...");
+    console.log("Do task 1");
+    mrJohn.emit("eventCallFoods", ["Pizza", "Salad"], mrJohn);
+
+    // end 7
+
