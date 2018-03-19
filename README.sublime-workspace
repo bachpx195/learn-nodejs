@@ -14,7 +14,7 @@ code: npm install --save-dev babel-preset-es2015 babel-preset-stage-2
 Ho tro code es6
 
 - Nodemon
-code: npm install --save-dev babel-cli
+code: npm install --save-dev nodemon
 Node monitor(theo doi) theo doi su thay doi cua code.
 Code duoc cap nhat lien tuc.
 
@@ -31,4 +31,16 @@ vd:
       if (err) throw err;
       console.log(`Saved to the ${fileName}`);
   })
-+ Asynchronously
++ Asynchronously (doc khong dong bo): tach ra thanh mot tien trinh rieng
+
+// Event
+
+// Express
++ express-generator tao cac dong lenh tu dong
+code: sudo npm install express-generator -g
+
++ tao thu muc express voi view js
+code:
+express --view=ejs myApp
+npm install --save-dev nodemon
+npm start
